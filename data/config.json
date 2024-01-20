@@ -1,0 +1,9 @@
+{
+    "window":{
+        "size": [700,400],
+        "size_locked": false,
+        "size_min":[600,300],
+        "size_max":[800,500],
+        "title": "Cheat framework by Deloads"
+    }
+}

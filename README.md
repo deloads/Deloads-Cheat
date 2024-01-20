@@ -1,2 +1,1 @@
-# Deloads-Cheat
-Frontend framework
+# Deloads-Cheats
