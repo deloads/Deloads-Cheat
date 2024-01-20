@@ -17,20 +17,20 @@ class window(ctk.CTk):
         self.left_frame = utils.frame(self,0)
         self.right_frame = utils.frame(self,1)
 
-        self.tabs = {}
+        self.tabs = []
 
     def run(self):
         self.mainloop()
 
     def hide_content(self):
-        for key,tab in self.tabs.items():
-            print(tab)
+        for tab in self.tabs:
             tab.hide_content()
 
-    def opentab(self,tab_name):
+    def opentab(self,tab):
         self.hide_content()
-        self.tabs[tab_name].show_content()
+        tab.show_content()
     
     def new_tap(self,tab_name):
-        self.tabs[tab_name] = utils.tab(self.left_frame,self,tab_name)
-        return self.tabs[tab_name]
+        tab = utils.tab(self.left_frame,self,tab_name)
+        self.tabs.append(tab)
+        return tab

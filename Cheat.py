@@ -1,18 +1,22 @@
 import resources.Font.Font as Font
 import resources.Frease.Frease as Frease
 
+def sayhi():
+    print('hi')
+
+def saybye():
+    print('bye')
+
 def setup():
     window = Font.window()
 
     inject_tab = window.new_tap('inject')
 
-    label = inject_tab.new_label('text')
-    label = inject_tab.new_label('hi')
+    top_label = inject_tab.new_label('top_label')
+    button = inject_tab.new_button('say hi',sayhi)
 
-    inject_tab = window.new_tap('subject')
-
-    label = inject_tab.new_label('test')
-    label = inject_tab.new_label('do')
+    frease_tab = window.new_tap('frease')
+    button = frease_tab.new_button('say bye',saybye)
 
     window.run()
 
