@@ -1,5 +1,5 @@
-import env.Font.Font as Font
-import env.Frease.Frease as Frease
+import store.Font.Font as Font
+import store.Frease.Frease as Frease
 
 def setup():
     window = Font.window()
