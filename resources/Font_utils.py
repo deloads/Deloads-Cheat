@@ -65,7 +65,8 @@ class textbox:
         self.textbox.pack(fill=ctk.X)
 
 class slider:
-    def __init__(self,t,parent,Range,slider_text,value):
+    def __init__(self,t,parent,Range,slider_text,value,func):
+        self.func = func
         self.value = round(value,3)
         self.text = slider_text
         self.label = t.new_label(f"{self.text}: {round(value,3)}")
@@ -77,12 +78,24 @@ class slider:
     def slide(self,value):
         self.value = round(value,3)
         self.label.label.configure(text=f"{self.text}: {self.value}")
+        if self.func != False:
+            self.func(self.value)
 
     def hide(self):
         self.slider.pack_forget()
     
     def show(self):
         self.slider.pack(fill=ctk.X)
+
+class entry:
+    def __init__(self,parent,place_holder):
+        self.entry = ctk.CTkEntry(parent,placeholder_text=place_holder)
+
+    def hide(self):
+        self.entry.pack_forget()
+    
+    def show(self):
+        self.entry.pack(fill=ctk.X)
 
 
 class tab:
@@ -123,7 +136,12 @@ class tab:
         self.content.append(t)
         return t
     
-    def new_slider(self,slider_text,Range,value):
-        s = slider(self,self.window.right_frame,Range,slider_text,value)
+    def new_slider(self,slider_text,Range,value,func = False):
+        s = slider(self,self.window.right_frame,Range,slider_text,value,func)
         self.content.append(s)
         return s
+    
+    def new_entry(self,place_holder):
+        e = entry(self.window.right_frame,place_holder)
+        self.content.append(e)
+        return e

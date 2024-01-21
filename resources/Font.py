@@ -1,4 +1,4 @@
-import resources.Font.Font_utils as utils
+import resources.Font_utils as utils
 import customtkinter as ctk
 
 class window(ctk.CTk):
