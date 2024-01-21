@@ -64,6 +64,26 @@ class textbox:
     def show(self):
         self.textbox.pack(fill=ctk.X)
 
+class slider:
+    def __init__(self,t,parent,Range,slider_text,value):
+        self.value = round(value,3)
+        self.text = slider_text
+        self.label = t.new_label(f"{self.text}: {round(value,3)}")
+        if len(Range) == 3:
+            self.slider = ctk.CTkSlider(parent,from_=Range[0],to=Range[1],number_of_steps=Range[2],command=self.slide,variable=ctk.DoubleVar(value=value))
+        else:
+            self.slider = ctk.CTkSlider(parent,from_=Range[0],to=Range[1],command=self.slide,variable=ctk.DoubleVar(value=value))
+
+    def slide(self,value):
+        self.value = round(value,3)
+        self.label.label.configure(text=f"{self.text}: {self.value}")
+
+    def hide(self):
+        self.slider.pack_forget()
+    
+    def show(self):
+        self.slider.pack(fill=ctk.X)
+
 
 class tab:
     def __init__(self,parent,window,tab_name):
@@ -102,3 +122,8 @@ class tab:
         t = textbox(self.window.right_frame,text)
         self.content.append(t)
         return t
+    
+    def new_slider(self,slider_text,Range,value):
+        s = slider(self,self.window.right_frame,Range,slider_text,value)
+        self.content.append(s)
+        return s
