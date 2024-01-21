@@ -89,13 +89,23 @@ class slider:
 
 class entry:
     def __init__(self,parent,place_holder):
-        self.entry = ctk.CTkEntry(parent,placeholder_text=place_holder)
+        self.value = ctk.StringVar()
+        self.entry = ctk.CTkEntry(parent,placeholder_text=place_holder,textvariable=self.value)
 
     def hide(self):
         self.entry.pack_forget()
     
     def show(self):
         self.entry.pack(fill=ctk.X)
+
+    def get_string(self):
+        return self.value.get()
+    
+    def get_number(self):
+        try:
+            return float(self.value.get())
+        except:
+            return 0
 
 
 class tab:
