@@ -16,6 +16,10 @@ class frame(ctk.CTkScrollableFrame):
         super().__init__(master=parent)
         self.grid(row = 0,column = col,sticky=ctk.NSEW,padx=3,pady=3)
 
+class frameNo(ctk.CTkFrame):
+    def __init__(self,parent):
+        super().__init__(master=parent)
+
 class label:
     def __init__(self,parent,label_text):
         self.label = ctk.CTkLabel(master=parent,text=label_text,anchor='w')
@@ -51,6 +55,24 @@ class switch:
     
     def show(self):
         self.switch.pack(fill=ctk.X)
+
+class combobox:
+    def __init__(self,parent,items,labe_text,func):
+        self.frame = frameNo(parent)
+        self.frame.columnconfigure(0,weight=1)
+        self.frame.columnconfigure(1,weight=1)
+        self.combobox = ctk.CTkComboBox(self.frame,values=items,command=func)
+        self.combobox.set(items[0])
+        self.combobox.grid(sticky=ctk.NSEW,row=0,column=0,padx=3)
+        self.label = ctk.CTkLabel(self.frame,text=labe_text,anchor='w')
+        self.label.grid(sticky=ctk.NSEW,row=0,column=1)
+
+    def hide(self):
+        self.frame.pack_forget()
+    
+    def show(self):
+        self.frame.pack(fill=ctk.X)
+    
 
 class textbox:
     def __init__(self,parent,text):
@@ -155,3 +177,8 @@ class tab:
         e = entry(self.window.right_frame,place_holder)
         self.content.append(e)
         return e
+    
+    def new_combobox(self,items,labe_text,func):
+        c = combobox(self.window.right_frame,items,labe_text,func)
+        self.content.append(c)
+        return c
