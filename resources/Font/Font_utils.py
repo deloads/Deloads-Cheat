@@ -52,6 +52,18 @@ class switch:
     def show(self):
         self.switch.pack(fill=ctk.X)
 
+class textbox:
+    def __init__(self,parent,text):
+        self.textbox = ctk.CTkTextbox(parent)
+        self.textbox.insert("0.0",text)
+        self.textbox.configure(state=ctk.DISABLED)
+    
+    def hide(self):
+        self.textbox.pack_forget()
+    
+    def show(self):
+        self.textbox.pack(fill=ctk.X)
+
 
 class tab:
     def __init__(self,parent,window,tab_name):
@@ -85,3 +97,8 @@ class tab:
         s = switch(self.window.right_frame,switch_text,func)
         self.content.append(s)
         return s
+    
+    def new_textbox(self,text):
+        t = textbox(self.window.right_frame,text)
+        self.content.append(t)
+        return t

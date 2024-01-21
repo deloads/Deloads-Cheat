@@ -21,7 +21,7 @@ def setup():
     frease_tab = window.new_tap('frease')
     button = frease_tab.new_button('say bye',saybye)
     switch = frease_tab.new_switch('nice',toggle)
-    print(switch.value)
+    textbox = frease_tab.new_textbox('text box')
 
     window.run()
 
