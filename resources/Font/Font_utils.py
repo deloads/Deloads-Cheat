@@ -36,6 +36,22 @@ class button:
     def show(self):
         self.button.pack(fill=ctk.X)
 
+class switch:
+    def __init__(self,parent,switch_text,func):
+        self.func = func
+        self.switch = ctk.CTkSwitch(parent,text=switch_text,command=self.toggle)
+        self.value = False
+
+    def toggle(self):
+        self.value = invert(self.value)
+        self.func(self.value)
+
+    def hide(self):
+        self.switch.pack_forget()
+    
+    def show(self):
+        self.switch.pack(fill=ctk.X)
+
 
 class tab:
     def __init__(self,parent,window,tab_name):
@@ -64,3 +80,8 @@ class tab:
         b = button(self.window.right_frame,button_text,func)
         self.content.append(b)
         return b
+    
+    def new_switch(self,switch_text,func):
+        s = switch(self.window.right_frame,switch_text,func)
+        self.content.append(s)
+        return s

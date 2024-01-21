@@ -7,6 +7,9 @@ def sayhi():
 def saybye():
     print('bye')
 
+def toggle(value):
+    print(value)
+
 def setup():
     window = Font.window()
 
@@ -17,6 +20,8 @@ def setup():
 
     frease_tab = window.new_tap('frease')
     button = frease_tab.new_button('say bye',saybye)
+    switch = frease_tab.new_switch('nice',toggle)
+    print(switch.value)
 
     window.run()
 
