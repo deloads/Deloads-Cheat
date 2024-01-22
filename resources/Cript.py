@@ -6,7 +6,6 @@ def encript(path,key):
     convert = []
     for i in range(len(file)):
         convert.append(ord(file[i]))
-    print(convert)
     for i in key:
         keys = cript_utils.get_keys(ord(i))
         for j in range(len(convert)):
