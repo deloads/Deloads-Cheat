@@ -1,8 +1,10 @@
+import json
 
+all_keys = 1
 
-def convert_char(char):
-    return ord(char)
-
-def convert_ascii(ascii):
-    return chr(ascii)
-
+def get_keys(stroke):
+    global all_keys
+    if all_keys == 1:
+        with open("data/.keys.json") as file:
+            all_keys = json.load(file)
+    return all_keys[stroke]
