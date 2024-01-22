@@ -1,10 +1,10 @@
 import resources as bulp
 
 def encript():
-    bulp.encript("data/test.json","awbdgu7iaw")
+    bulp.encript("data/test.json","key")
 
 def decript():
-    bulp.decript("data/test.json","awbdgu7iaw")
+    bulp.decript("data/test.json","key")
 
 def setup():
     window = bulp.window()
