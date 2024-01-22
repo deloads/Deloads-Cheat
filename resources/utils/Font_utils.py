@@ -80,6 +80,17 @@ class textbox:
         self.textbox.insert("0.0",text)
         self.textbox.configure(state=ctk.DISABLED)
     
+    def new_text(self,text):
+        self.textbox.configure(state=ctk.NORMAL)
+        self.textbox.delete("0.0","end")
+        self.textbox.insert("0.0",text)
+        self.textbox.configure(state=ctk.DISABLED)
+    
+    def add_text(self,text):
+        self.textbox.configure(state=ctk.NORMAL)
+        self.textbox.insert("end",text)
+        self.textbox.configure(state=ctk.DISABLED)
+    
     def hide(self):
         self.textbox.pack_forget()
     
