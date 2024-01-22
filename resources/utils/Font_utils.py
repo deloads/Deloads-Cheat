@@ -28,7 +28,7 @@ class label:
         self.label.pack_forget()
     
     def show(self):
-        self.label.pack(fill=ctk.X)
+        self.label.pack(fill=ctk.X,pady=2)
 
 class button:
     def __init__(self,parent,button_text,func):
@@ -38,7 +38,7 @@ class button:
         self.button.pack_forget()
     
     def show(self):
-        self.button.pack(fill=ctk.X)
+        self.button.pack(fill=ctk.X,pady=2)
 
 class switch:
     def __init__(self,parent,switch_text,func):
@@ -54,7 +54,7 @@ class switch:
         self.switch.pack_forget()
     
     def show(self):
-        self.switch.pack(fill=ctk.X)
+        self.switch.pack(fill=ctk.X,pady=2)
 
 class combobox:
     def __init__(self,parent,items,labe_text,func):
@@ -71,7 +71,7 @@ class combobox:
         self.frame.pack_forget()
     
     def show(self):
-        self.frame.pack(fill=ctk.X)
+        self.frame.pack(fill=ctk.X,pady=2)
     
 
 class textbox:
@@ -84,7 +84,7 @@ class textbox:
         self.textbox.pack_forget()
     
     def show(self):
-        self.textbox.pack(fill=ctk.X)
+        self.textbox.pack(fill=ctk.X,pady=2)
 
 class slider:
     def __init__(self,t,parent,Range,slider_text,value,func):
@@ -107,7 +107,7 @@ class slider:
         self.slider.pack_forget()
     
     def show(self):
-        self.slider.pack(fill=ctk.X)
+        self.slider.pack(fill=ctk.X,pady=2)
 
 class entry:
     def __init__(self,parent,place_holder):
@@ -118,7 +118,7 @@ class entry:
         self.entry.pack_forget()
     
     def show(self):
-        self.entry.pack(fill=ctk.X)
+        self.entry.pack(fill=ctk.X,pady=2)
 
     def get_string(self):
         return self.value.get()
